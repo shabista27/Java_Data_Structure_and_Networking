@@ -1,0 +1,79 @@
+/*
+Write a Java program which will demonstrate a concept of Interfaces and packages: 
+In this assignment design and use of customized interfaces and packages for a specific application are expected. 
+*/ 
+ 
+*********** circle.java 
+ 
+package shape; import java.io.*;
+import java.util.*; 
+import java.util.Scanner; 
+ 
+public class circle implements perimeter 
+{ 
+ 	private double r; 
+ 	public void calculate() 
+ 	{ 
+	  System.out.print("Enter radius"); 
+	  Scanner input=new Scanner(System.in); 
+ 	 	double r=input.nextDouble();  	 
+		double p=2*3.14*r; 
+ 	 	System.out.println("Perimeter of circle:"+p); 
+ 	} 
+ 
+} 
+ 
+*****************  perimeter.java 
+ 
+package shape; 
+ 
+public interface perimeter 
+{ 
+ 	void calculate(); 
+} 
+  
+********* 
+ 
+rectangle.java 
+ 
+package shape; 
+import java.io.*;
+import java.util.*;
+import java.util.Scanner; 
+
+public class rectangle implements perimeter 
+{ 
+ 	private double length, breadth; 
+ 	public void calculate() 
+ 	{ 
+ 	 	System.out.print("Enter length");  	 
+		Scanner input=new Scanner(System.in);  	 
+		double length=input.nextDouble();  	 
+		System.out.print("Enter breadth");  	 
+		double breadth=input.nextDouble();  	 
+		double p=2*(length+breadth); 
+ 	 	System.out.println("Perimeter of rectangle:"+p); 
+ 	} 
+} 
+ 
+ 
+ 
+ 
+===================main.java 
+ 
+package shape; 
+ 
+public class main{ 
+ 	public static void main(String[] args) 
+ 	{ 
+ 	 	perimeter obj; 
+ 	 	circle obj1=new circle();  	 	rectangle obj2=new rectangle(); 
+  System.out.println("\n\t calculating Perimeter of circle\n"); 
+ 	 	obj=obj1; 
+ 	 	obj.calculate(); 
+  System.out.println("calculating Perimeter of rectangle:\n"); 
+ 	 	obj=(perimeter) obj2; 
+ 	 	obj.calculate(); 
+ 	} 
+} 
+
